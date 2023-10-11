@@ -1,0 +1,116 @@
+/* Style the tab */
+/*.tab {
+  padding: 0;
+  width: 120px;
+  position: fixed;
+  height: 100%;
+  
+  border: 1px solid #ccc;
+  background-color: #25bb91;
+  margin-block-end: 200px;
+  margin-left: 60px;
+  float: left;
+}
+
+
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 20px;
+  }*/
+
+/* Change background color of buttons on hover */
+/*.tab button:hover {
+  background-color: #3c977b;
+}*/
+
+/* Create an active/current tablink class */
+/*.tab button.active {
+      background-color: #ccc;
+    }*/
+
+/* Style the tab content */
+/*.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  margin-left: 200px;
+  height: 1000px;
+}*/
+
+
+.box {
+  padding: 20px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+/*.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+*/
+
+* {
+  box-sizing: border-box
+}
+
+/* Style the tab */
+.tab {
+  position: fixed;
+  float: left;
+  border: 1px solid #8753b4;
+  background-color: #855e9a;
+  width: 10%;
+  height: 800px;
+}
+
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    display: block;
+    background-color: inherit;
+    color: white;
+    padding: 14px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #947ea3;
+    }
+
+    /* Create an active/current "tab button" class */
+    .tab button.active {
+      background-color: #ff0000;
+    }
+
+/* Style the tab content */
+.tabcontent {
+  /*display: none;*/
+  float: left;
+  padding: 4px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 80%;
+  margin-left: 200px;
+  border-left: none;
+  height: 1000px;
+}

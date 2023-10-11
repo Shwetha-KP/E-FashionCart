@@ -1,0 +1,70 @@
+<app-nav-menu>
+
+</app-nav-menu>
+<table *ngFor="let cart of cartItem" cellpadding="8" width="50%" align="center" border="0" border-color="black" cellspacing="2" class="table table-striped">
+  <tr>
+    <td colspan="6">
+      <input type="button" class="btn-success" value="Proceed To Order"(click)="gotoOrder(cart)"
+             style="margin-left:200px" />
+    </td>
+  </tr>
+  <tr *ngIf="cart.orderDetail != null && cart.orderDetail.length>0">
+    <th>Images</th>
+    <th>Pattername</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Sub Total</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let detail of cart.orderDetail">
+    <td>
+      <div class="box">
+        <splide (onInit)="onSplideInit($event)">
+          <splide-slide>
+            <div><input type="image" src="data:image/png;base64,{{detail.picture}}" style="width:300px;height:370px" /></div>
+          </splide-slide>
+          <splide-slide>
+            <div><input type="image" src="data:image/png;base64,{{detail.picture1}}" style="width:300px;height:370px" /></div>
+          </splide-slide>
+          <splide-slide>
+            <div><input type="image" src="data:image/png;base64,{{detail.picture2}}" style="width:300px;height:370px" /></div>
+          </splide-slide>
+          <splide-slide>
+            <div><input type="image" src="data:image/png;base64,{{detail.picture3}}" style="width:300px;height:370px" /></div>
+          </splide-slide>
+          <splide-slide>
+            <div><input type="image" src="data:image/png;base64,{{detail.picture4}}" style="width:300px;height:370px" /></div>
+          </splide-slide>
+        </splide>
+      </div>
+    </td>
+    <td>{{detail.patternName}}</td>
+    <td>{{detail.price | currency:'INR'}}</td>
+    <td>
+      <div class="content">
+        <span>
+          <input type="number" class="form-control" [(ngModel)]="detail.quantity" />
+        </span>
+
+      </div>
+    <td>{{detail.price*detail.quantity | currency:'INR'}}</td>
+    <td class="trash">
+      <button class="btn btn-danger" (click)="removeItem(cart,detail)"><fa name="trash" ></fa>Remove</button>
+    </td>
+  </tr>
+  <tr>
+    <th colspan="6">
+      <div>
+        <button class="btn btn-primary-outline" (click)="deleteAll(cart,detail)" style="font-weight:bold;text-align:center;float:right">Delete All</button>
+      </div>
+      </th>
+  </tr>
+  <tr>
+    <td colspan="6">
+      <input type="button" class="btn-success" value="Proceed To Order" (click)="gotoOrder(cart)"
+             style="margin-left:200px" />
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="cartItem.length===0" class="alert alert-info">Your Cart Is Empty.</div>

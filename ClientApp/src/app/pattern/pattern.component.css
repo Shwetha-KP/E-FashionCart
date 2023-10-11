@@ -1,0 +1,57 @@
+button {
+  margin-top: 20px;
+  border: 1px solid #b62059;
+  border-radius: 23px;
+  padding: 14px 28px 11px;
+  line-height: 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+  width: 70%;
+  background-color: #b62059;
+  color: #fff;
+}
+.input-group-text {
+  font-size: 30px;
+}
+.button-icon{
+  width: 300px;
+  cursor: pointer;
+ }
+.btn btn-primary-outline pull-center {
+  width: 300px;
+  cursor: pointer;
+}
+.products {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+.image{
+    mask-image:inherit;
+}
+.box {
+  padding: 20px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  width:450px;
+}
+.col-md-4{
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 30.333333%;
+}
+.btn btn-primary {
+  color: #fff;
+  background-color: #b62059;
+  border-radius:1px;
+}
+h2{
+    text-align:center;
+}

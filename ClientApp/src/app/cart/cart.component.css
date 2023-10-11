@@ -1,0 +1,43 @@
+.box{
+    width:300px;
+}
+.btn btn-primary-outline {
+  margin-left: 870px;
+  margin-top: 40px;
+  background-color: #b62059;
+  border-color: #b62059;
+  width: 10%;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  border: 1px solid #b62059;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  background: #fff;
+}
+.trash {
+  cursor: pointer;
+  
+}
+button {
+  margin-top: 40px;
+  background-color: #b62059;
+  border-color: #b62059;
+  width: 100%;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  border: 1px solid #b62059;
+}
+.btn-cartorder {
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  border: 1px solid #b62059;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  background: #fff;
+}
+.btn btn-danger{
+   
+}

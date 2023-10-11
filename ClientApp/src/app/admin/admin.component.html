@@ -1,0 +1,53 @@
+<div style="background-image: url('assets/images/1.jpg');
+    opacity: 5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-repeat: repeat;
+    background-size: cover;
+    z-index: -1;">
+  <h1 style="text-align:center;margin-top:150px">Admin Login</h1>
+  <table>
+    <tr>
+      <td>
+        <div style="    margin-left: 600px; margin-top: 20px">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <fa name="user" size="2x"></fa>
+              </span>
+              <input type="email" [(ngModel)]="email" style="height: 47px" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1 ">
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style=" margin-left: 600px;margin-top: 20px">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <fa name="key" size="2x"></fa>
+              </span>
+            </div>
+            <input type="password" [(ngModel)]="password" style="height: 47px;" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div style=" margin-left: 700px;margin-top: 20px">
+          <button (click)="submit()" class="btn btn-info" data-mdb-ripple-color="dark">Submit</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+

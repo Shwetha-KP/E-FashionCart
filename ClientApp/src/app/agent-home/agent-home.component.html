@@ -1,0 +1,283 @@
+<!--<div style="background-image: url('/assets/images/fabric.jpg'); width:100%; height:100vh;
+ opacity:5;
+    position: absolute;
+    top: 0;
+    bottom:0;
+    right: 0;
+    left: 0;
+    background-repeat:repeat;
+    background-size: cover;
+    z-index: -1;">-->
+<!--<div style="width: 100%; height: 100vh;
+       opacity: 5;
+       position: absolute;
+       top: 0;
+       bottom: 0; right: 0;
+       left: 0;
+       background-repeat: repeat; background-size: cover; z-index: -1;">-->
+<!--<div>-->
+<!--<div class="container-fluid" *ngIf="loggedin==false"
+     style="width: 100%; height: 100vh;
+       opacity: 5;
+       position: absolute;
+       top: 0;
+       bottom: 0; right: 0;
+       left: 0;
+       background-repeat: repeat; background-size: cover; z-index: -1;">
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <form class="form-container">
+        <div class="form-group">
+          <div>
+          <h1 style="color:black">Agent Login Form</h1>
+
+          <table class="table table-striped" border="0">
+            <tr>
+              <th>Username</th>
+              <th><input type="text" [(ngModel)]="agentusername" /> </th>
+            </tr>
+            <tr>
+              <th>Password</th>
+              <th><input type="password" [(ngModel)]="agentpassword" /> </th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button class="btn btn-success btn-block" (click)="login()">Login</button>
+              </td>
+            </tr>
+          </table>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>-->
+<!--</div>-->
+
+  <!--<div *ngIf="loggedin==false" class="box" style="width: 100%; height: 100vh;
+         opacity: 5;
+         position: absolute;
+         top: 0;
+         bottom: 0; right: 0;
+         left: 0;
+         background-repeat: repeat; background-size: cover; z-index: -1;">
+
+    Agent Login
+    <table class="table table-striped" border="0">
+      <tr>
+        <th>Username</th>
+        <th><input type="text" [(ngModel)]="agentusername" /> </th>
+      </tr>
+      <tr>
+        <th>Password</th>
+        <th><input type="password" [(ngModel)]="agentpassword" /> </th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)="login()">Login</button>
+        </td>
+      </tr>
+    </table>
+  </div>-->
+<div style="    background-image: url('assets/images/240_F_273191172.jpg');
+    opacity: 5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-repeat: repeat;
+    background-size: cover;
+    z-index: -1;">
+
+  <h1 style="text-align: center;margin-top: 150px;font-family: chiller;font-size: 100px">Agent Login </h1>
+  <table border="0" style=" margin-top: 50px;margin-left:600px">
+    <!--class="table table-striped"-->
+    <tr>
+      <th>Username</th>
+      <th><input type="text" [(ngModel)]="agentusername" style="height: 47px" class="form-control" placeholder="Username" aria-label="Email" aria-describedby="basic-addon1"> </th>
+    </tr>
+    <tr>
+      <th>Password</th>
+      <th><input type="password" [(ngModel)]="agentpassword" style="height: 47px" class="form-control" placeholder="Password" aria-label="Email" aria-describedby="basic-addon1"> </th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div style=" margin-left: 130px;margin-top: 20px;">
+          <button (click)="login()" class="btn btn-danger" data-mdb-ripple-color="light" style="font-size:20px">Login</button>
+
+        </div>
+      </td>
+
+    </tr>
+  </table>
+  </div>
+  <div *ngIf="loggedin==true" style="background-image: url('/assets/images/agent.jpg'); width: 100%; height: 100vh;
+       opacity: 5;
+       position: absolute;
+       top: 0;
+       bottom: 0; right: 0;
+       left: 0;
+       background-repeat: repeat; background-size: cover; z-index: -1;">
+    <!-- Agent Home -->
+    <h4>Open Orders</h4>
+    <table class="table table-striped" border="1" style="margin-top:10px">
+      <tr>
+        <th style="background-color: whitesmoke; padding: 10px;">Customer names</th>
+        <td *ngFor="let row of items" (click)="getOrder(row)"
+            style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+          {{row.orderId}}.{{row.customerName}}
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="selectedrow == null">{{displaytext}}</div>
+    <div *ngIf="selectedrow != null " style="margin-top:10px">
+      <div class="table-responsive">
+        <table class="table table-dark table-striped" border="1" style="padding:5px;">
+
+          <tr *ngIf="order">
+            <th scope="col" style="background-color: lightyellow;color:black">Order Id</th>
+            <td scope="row">{{ order.id}}</td>
+
+            <th scope="col" style="background-color: lightyellow;color: black;">Customer Id</th>
+            <td scope="row">{{ order.customerId}}</td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">Order Status</th>
+            <td scope="row">
+              <select disabled [(ngModel)]="order.orderStatus">
+                <option value="2">Pickup</option>
+                <option value="5">Delivery</option>
+              </select>
+            </td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">Customer Name</th>
+            <td *ngIf="order" scope="row">{{ selectedrow.customerName}}</td>
+          </tr>
+          <tr *ngIf="address">
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">FullName</th>
+            <td scope="row">{{ address.fullName}}</td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">Address 1</th>
+            <td scope="row">{{ address.address1}}</td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">Address 2</th>
+            <td scope="row">{{ address.address2}}</td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">Landmark</th>
+            <td scope="row">{{ address.landmark}}</td>
+          </tr>
+          <tr *ngIf="address">
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">Address Type</th>
+            <td scope="row">{{ address.addressType}}</td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">City</th>
+            <td scope="row">{{ address.city}}</td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">State</th>
+            <td scope="row">{{ address.state}}</td>
+
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">Pincode</th>
+            <td scope="row">{{ address.pincode}}</td>
+          </tr>
+          <tr>
+            <th scope="col" style="    background-color: lightyellow;
+    color: black;">
+              Mobile Number
+            </th>
+            <td colspan="3" scope="row">{{ address.mobileNo}}</td>
+          </tr>
+        </table>
+      </div>
+      <table class="table table-dark table-striped" border="1" style="margin-top:10px;padding:5px" *ngIf="order !=null && order.orderStatus !=5">
+        <tr>
+          <th><button class="btn btn-info" (click)="addNew()">New</button></th>
+          <th>Ordered Item</th>
+          <th>Name</th>
+          <th>Unit</th>
+          <th>Value</th>
+        </tr>
+        <tr *ngFor="let row of measurements">
+          <td>
+            <button class="btn btn-warning" (click)="saveMeasument(row)">Save</button>
+            <button class="btn btn-danger" (click)="removeMeasument(row)">Delete</button>
+          </td>
+          <td>
+            <select [(ngModel)]="row.detailId" (change)="changePatternPhoto(row)">
+              <option *ngFor="let col of detail" [value]="col.detailId">{{col.name}}</option>
+            </select>
+            <input *ngIf="row.photo !=''" type="image" src="data:image/png;base64,{{ row.photo }}" style="width:100px;height:100px;" />
+          </td>
+          <td><input type="text" [(ngModel)]="row.partname" /></td>
+          <td>
+            <select [(ngModel)]="row.unitName">
+              <option value="cm">cm</option>
+              <option value="in">in</option>
+              <option value="m">m</option>
+            </select>
+          </td>
+          <td><input type="number" [(ngModel)]="row.unitValue" /></td>
+        </tr>
+        <tr *ngIf="order !=null && order.orderStatus !=5">
+          <td colspan="4" style="text-align:center"><button class="btn btn-outline-primary" (click)="markAsCollected()">Collected</button></td>
+        </tr>
+      </table>
+      <div *ngIf="paymentModel !=null">
+        <table>
+          <tr>
+            <th>Bill Amount:</th>
+            <td>
+              <input type="number" [(ngModel)]="paymentModel.totalAmount" readonly />
+            </td>
+          </tr>
+          <tr>
+            <th>Amount Paid</th>
+            <td>
+              <input type="number" [(ngModel)]="paymentModel.paidAmount" />
+            </td>
+          </tr>
+          <tr>
+            <th>Mode of Payment</th>
+            <td>
+              <select [(ngModel)]="paymentModel.paymentMode">
+                <option value="">--Select--</option>
+                <option value="Cash">Cash</option>
+                <option value="Cheque">Cheque</option>
+                <option value="UPI">UPI</option>
+                <option value="NEFT">NEFT</option>
+                <option value="IMPS">IMPS</option>
+                <option value="Bank Deposit">Bank Deposit</option>
+              </select>
+            </td>
+          </tr>
+         
+          <tr>
+            <th>Remarks</th>
+            <td>
+              <textarea [(ngModel)]="paymentModel.remarks"
+                        placeholder="Add payment details,Payment reference ID or any other remarks..."></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button (click)="updatePayment()">Complete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <button (click)="logout()">Logout</button>
+
+  </div>
+

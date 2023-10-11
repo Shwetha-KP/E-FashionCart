@@ -1,0 +1,56 @@
+/* Assign full width inputs*/
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 12px 40px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button:hover {
+  opacity: 0.8;
+}
+/* Set a style for the buttons*/
+button {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-top:10px;
+} 
+  /* Set extra style for the cancel button*/
+  .container
+
+{
+  padding: 16px;
+}
+
+.fontuser {
+  position: relative;
+}
+
+  .fontuser i {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: gray;
+  }
+
+.fontpassword {
+  position: relative;
+}
+
+  .fontpassword i {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: gray;
+  }
+
+.form-control{
+    width:300px;
+}

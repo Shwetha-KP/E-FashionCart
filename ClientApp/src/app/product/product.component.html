@@ -1,0 +1,27 @@
+<p>product works!</p>
+<h2>Select your faviourate designs</h2>
+<table class="products" aria-labelledby="tableLabel" *ngIf="productList">
+  <tbody>
+    <tr *ngFor="let row of productList;">
+      <td><input type="checkbox" [(ngModel)]="row.select" (change)="onSelect(row)" value="true" /></td>
+
+      <td>{{ row.productName }}</td>
+      <td>{{ row.category }}</td>
+      <td><input type="image" src="assets/images/{{ row.picture }}" style="width:40px;height:40px" /></td>
+      <td>{{ row.price }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Select your faviourate designs</h2>
+<!--<table class="products" aria-labelledby="tableLabel" *ngIf="patternlist">
+  <tbody>
+    <tr *ngFor="let row of patternlist|filterprod:selectedrow">
+
+      <td>{{ row.name}}</td>
+
+      <td><input type="image" src="assets/images/{{ row.picture }}" style="width:40px;height:40px" /></td>
+
+    </tr>
+  </tbody>
+</table>-->

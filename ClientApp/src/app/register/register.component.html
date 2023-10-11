@@ -1,0 +1,96 @@
+  <div style="background-image: url('assets/images/photo-1610359028422-e5a6fa73cf91.jpeg');
+    opacity: 0.80;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;">
+  <h1 style="color: darkslateblue;
+    margin-left: 100px;
+    font-family: Chiller;
+    font-weight: 900;
+     font-size:90px">
+    E-FashionCart
+  </h1>
+  <table class="table table-striped">
+    <tr>
+      <th style="margin-left: 90px;font-size: larger;color: antiquewhite;"> First name: </th>
+      <td>
+        <input type="text" placeholder="Enter firstname" [(ngModel)]="firstName" (input)="validateName(firstName)" style="margin-top:7px;border-radius:5px;width:50%" autocomplete="off" />
+        <p style="color:red">{{nameerror}}</p>
+
+      </td>
+    </tr>
+    <tr>
+      <th style="margin-left: 90px;font-size: larger;color: antiquewhite;"> Last name: </th>
+      <td>
+        <input type="text" placeholder="Enter lastname " [(ngModel)]="lastName" style="margin-top: 7px;
+    border-radius: 5px;
+    width: 50%
+" autocomplete="off"/>
+      </td>
+    </tr>
+
+    <tr>
+      <th style="margin-left: 90px;font-size: larger;color: antiquewhite;"> Email: </th>
+      <td>
+        <input type="text" placeholder="Enter Email" [(ngModel)]="email" (input)="validateEmail(email)" style="margin-top: 7px;
+    border-radius: 5px;
+    width: 50%
+" autocomplete="off" />
+        
+        <p style="color:red">{{emailerror}}</p>
+      </td>
+    </tr>
+    <tr>
+      <th style="margin-left: 90px;font-size: larger;color: antiquewhite;"> Mobile no: </th>
+      <td>
+        <input type="tel" placeholder="Enter mobile number" [(ngModel)]="mobileno" (input)="validateMobileno(mobileno)" style="margin-top: 7px;
+    border-radius: 5px;
+    width: 50%
+" autocomplete="off" />
+        <p style="color:red">{{mblnoerror}}</p>
+
+      </td>
+    </tr>
+    <tr>
+      <th style="margin-left: 90px;font-size: larger;color: antiquewhite;"> Password: </th>
+      <td>
+        <input type="password" placeholder="Create password" [(ngModel)]="password" (input)="validatePassword(password)" style="margin-top:7px;
+    border-radius: 5px;
+    width: 50%
+" autocomplete="off" />
+        <p style="color:red">
+          {{passworderror}}
+        </p>
+        <p style="color:orangered;font:bolder;font:italic">
+          Minimum eight characters, at least one letter and one number
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th style="margin-left: 90px;font-size: larger;color: antiquewhite;"> Confirm Password: </th>
+      <td>
+        <input type="password" placeholder="Confirm password" [(ngModel)]="confirmpassword" style="    margin-top: 7px;
+    border-radius: 5px;
+    width: 50%
+" autocomplete="off" />
+      </td>
+    </tr>
+    <tr>
+      <th style="margin-left: 90px;font-size: larger;color: antiquewhite;"> Photo: </th>
+      <td>
+        <input type="file" (change)="onFilechange($event);" />
+        <img *ngIf="photo" src="data:image/png;base64,{{photo}}"
+             style="width:200px;height:200px;" />
+
+      </td>
+    </tr>
+  </table>
+  <button (click)="register()" [disabled]="disablebutton" style="cursor: pointer; width: 100px; border-radius: 12px; font-style: initial; background-color: yellowgreen;margin-bottom:50px;margin-right:80px;margin-left: 90px">Register</button>
+</div>
+
+       

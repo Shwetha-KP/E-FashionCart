@@ -1,0 +1,34 @@
+html{
+    align-content:center;
+}
+h1{
+    text-align:center;
+    text-decoration:underline;
+}
+table{
+    padding:8px;
+    width:50%;
+    align-content:center;
+    border-color:black;
+    border-spacing:2px;
+    
+}
+
+button {
+  margin-top: 20px;
+  border: 1px solid #b62059;
+  border-radius: 23px;
+  padding: 14px 28px 11px;
+  line-height: 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+  width: 40%;
+  background-color: #b62059;
+  color: #fff;
+  margin-left:320px;
+}
+

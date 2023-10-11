@@ -1,0 +1,116 @@
+<app-nav-menu>
+
+</app-nav-menu>
+<h2>Do you need your own design?<br />Then, upload your own design</h2>
+<div>
+  
+    <input type="file"(change)="onFilechange($event);" />
+    <img *ngIf="customPattern" src="data:image/png;base64,{{customPattern.photo}}"
+         style="width:300px;height:310px;" />
+  
+    <div *ngIf="customPattern && customPattern.photo !=''">
+      <h5 style="text-align:center">Please Enter Some Details</h5>
+      <table class="table table-striped" border="0"cellpadding="8" width="50%" bgcolor="white" align="center" border-color="black" cellspacing="2">
+        <tr>
+          <td>
+            Stitching Type:
+          </td>
+          <td colspan="2">
+            <select [(ngModel)]="customPattern.stitchingType">
+              <option value="New">New</option>
+              <option value="Alteration">Alteration</option>
+            </select>
+          </td>
+        <tr>
+          <td colspan="2">
+            Quantity:
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="customPattern.quantity" />
+          </td>
+        <tr>
+          <td colspan="2">
+            Instruction:
+          </td>
+          <td>
+            <textarea [(ngModel)]="customPattern.description" style="width:200px;height:60px"></textarea>
+            <p style="color:red;">(Note: Tailor will review the patten and update in the website.)</p>
+          </td>
+        </tr>
+      </table>
+      <button (click)="clickOrder()"
+              class="btn btn-primary-outline pull-center" width="40px">
+        Place a stitching order</button>
+    </div>
+  
+  </div>
+<hr size="4" />
+<div class="products" aria-labelledby="divLabel1"
+     *ngIf="mypattern!=null && mypattern.length>0">
+
+  <div *ngFor="let row of mypattern">
+    <h2>select patterns</h2>
+    <div class="card" style="border:none">
+      <div class="col-md-4">
+        <div class="box">
+          <splide (onInit)="onSplideInit($event)">
+            <splide-slide>
+              <div><input type="image" src="data:image/png;base64,{{ row.picture }}" style="width:300px;height:370px" /></div>
+            </splide-slide>
+            <splide-slide>
+              <div><input type="image" src="data:image/png;base64,{{ row.picture1 }}" style="width: 300px;height:370px" /></div>
+            </splide-slide>
+            <splide-slide>
+              <div><input type="image" src="data:image/png;base64,{{ row.picture2 }}" style="width:300px;height:370px" /></div>
+            </splide-slide>
+            <splide-slide>
+              <div><input type="image" src="data:image/png;base64,{{ row.picture3 }}" style="width:300px;height:370px" /></div>
+            </splide-slide>
+            <splide-slide>
+              <div><input type="image" src="data:image/png;base64,{{ row.picture4 }}" style="width:300px;height:370px" /></div>
+            </splide-slide>
+          </splide>
+          <div class="card-title">
+            <div><h5><strong>{{row.patternName}}</strong></h5></div>
+          </div>
+          <div class="card-body">
+            <div><strong>{{row.price | currency:'INR'}}</strong></div>
+
+            <div>
+              Stitching Type:
+              <select [(ngModel)]="row.stitchingType">
+                <option value="New">New</option>
+                <option value="Alteration">Alteration</option>
+              </select>
+            </div>
+            <br />
+
+            <div class="form-check-inline">
+              Quantity:
+              <input type="number" class="form-control" [(ngModel)]="row.quantity">
+            </div>
+            <br />
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span>
+                  <br />
+                  <button class="button-icon" (click)="addtocart(row)"><fa name="shopping-cart" size="100px"></fa>Add To Cart</button>
+                </span>
+              </div>
+            </div>
+            <div class="button-div">
+              <span>
+                <button class="btn btn-primary-outline pull-center" (click)="clickOrder(row)">Place a stitching order</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div *ngIf="mypattern==null||mypattern.length==0">
+    No Records Found!
+  </div>
+
+

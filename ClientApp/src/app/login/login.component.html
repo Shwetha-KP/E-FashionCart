@@ -1,0 +1,188 @@
+
+<div style="background-image: url('assets/images/photo-1611077544637-f826625c2776.jpeg');
+    opacity:5;
+    position: absolute;
+    top: 0;
+    bottom:0;
+    right: 0;
+    left: 0;
+    background-repeat:repeat;
+    background-size: cover;
+    z-index: -1;">
+  <h1 style="color: darkslateblue;
+    margin-left: 100px;
+    font-family: Chiller;
+    font-weight: 900;
+     font-size:80px">
+    E-FashionCart
+  </h1>
+
+  <marquee align="left" loop="infinite" behaviour="bounce" direction="right" style="margin-top:15px;color:rebeccapurple;font-style:italic;font-weight:bolder;">
+    <h2>Welcome to E-FashionCart</h2>
+  </marquee>
+  <div class="col-lg-6 col-sm-12">
+
+    <h1 style="font-family: Brown-Light;
+    font-weight: 300;
+    color: #3e4a74;
+    margin: 40px 0 10px;
+    line-height: 46px;
+    text-align: center;
+  ">
+      Don't go looking for the perfect fit.
+    </h1>
+    <h1 style="font-size: 30px;
+    font-weight: 400;
+    color: #3e4a74;
+    margin: 0 0 20px;
+    line-height: 46px;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    box-sizing: border-box;
+    text-align: center;
+">
+      Let it come home to you.
+    </h1>
+    <p style="display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+     ">Great fit. Doorstep pickup & delivery. Design consultation.</p>
+
+    <h2 style="text-align:center;color:darkblue">Login/SignUp on E-FashionCart</h2>
+
+    <div class="container">
+      <div class="fontuser">
+        <label><b>Email</b></label>
+        <input type="text"
+               placeholder="Enter Email" [(ngModel)]="email" autocomplete="off"
+               name="email" required>
+        <i class="fa fa-user fa-lg"></i>
+      </div>
+
+      <div class="fontpassword">
+        <label><b>Password</b></label>
+        <input type="password"
+               placeholder="Enter Password" [(ngModel)]="password" autocomplete="off" (keyup.enter)="login()"
+               name="password" required>
+        <i class="fa fa-key fa-lg"></i>
+      </div>
+
+
+      <br />
+      <p style="color:red;font-size:14px">{{loginmessage}}</p>
+      <br/>
+      <button (click)="login()" style="
+    background-color: lightslategray;
+    border-style:outset;
+    border-radius: 9px;margin-top:5px">
+        Login
+      </button>
+      <br />
+      <input type="checkbox" checked="checked">
+      Remember me
+      <b style="margin-left: 200px">Don't have an account? </b><a routerLink="/register">Register now</a>
+    </div>
+    </div>
+
+      <picture>
+        <source srcset="/assets/images/hero_blouse-min.204b9a5c.jpeg" />
+        <img src="/assets/images/hero_blouse-min.204b9a5c.jpeg" alt="logo" />
+      </picture>
+
+      <img src="/assets/images/men.jpeg" alt="logo" width="450" height="450" />
+      <img src="/assets/images/girls-beautiful-yellow-skinny-trousers-260nw-712737529.jpg" alt="logo" width="450" height="450" />
+
+      <hr size="4" />
+      <div class="Home__featurediv_heading_box__3AP0u">
+        <h1 class="Home__featurediv_heading1__1sYE8" style="font-weight: 400;
+    font-size: 17px;
+    color: #3e4a74;
+    line-height: 21px;
+    text-align: center;
+    text-transform: capitalize;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+">
+          Try E-FashionCart
+        </h1>
+        <h2 class="Home__featurediv_heading2__3lua-" style="font-family: Brown-Light; margin: 10px 0; font-size: 28px; font-weight: unset; line-height: 45px; text-align: center; font-style: normal;">Enjoy a delightful experience, every time.</h2>
+
+        <div class="column" style="background-color:lightpink">
+          <div class="col-md-4 Home__featurecol__nI3DC" style="box-sizing: border-box;
+    max-width: 33.333333%;
+    flex: 0 0 33.333333%;
+    padding: 0 32px
+">
+
+            <div class="Home__feature_icon__YGELl">
+              <img src="/assets/images/146099-200.png" width="100" height="100" class="Home__feature_icon__YGELl" alt="icon">
+            </div>
+
+            <div class="Home__featuredesc__1RQdl">
+              <p class="Home__featuredesc_heading__1nV6b">A great fit, that gets better</p>
+
+              <div class="Home__featuredesc_content__32VAi">
+                <p class="Home__featuredesc_content_para__3Kt3q">Feel out of shape and out of sorts in your clothes? It’s not you, it’s them. A great fit is not just important, it’s everything. That’s why we pull out all the stops to get it right.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="column" style="background-color:lightpink">
+          <div class="col-md-4 Home__featurecol__nI3DC" style="flex: 0 0 33.333333%;
+    box-sizing: border-box;
+    max-width: 33.333333%;
+    padding: 0 32px
+">
+            <div class="Home__feature_icon__YGELl">
+              <img src="/assets/images/429997-200.png" width="100" height="100" class="Home__feature_icon__YGELl" alt="icon">
+            </div>
+
+            <div class="Home__featuredesc__1RQdl">
+              <p class="Home__featuredesc_heading__1nV6b">Personal design consultant</p>
+
+              <div class="Home__featuredesc_content__32VAi">
+                <p class="Home__featuredesc_content_para__3Kt3q"> Work with a dedicated designer to bring your outfit to life. Our consultants are qualified, talented women with ideas who understand the intricacies of stitching for Indian body types.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column" style="background-color:lightpink">
+          <div class="col-md-4 Home__featurecol__nI3DC" style="flex: 0 0 33.333333%;
+    box-sizing: border-box;
+    max-width: 33.333333%;
+    padding: 0 32px
+">
+            <div class="Home__feature_icon__YGELl">
+              <img src="/assets/images/494967.png" width="100" height="100" class="Home__feature_icon__YGELl" alt="icon">
+            </div>
+
+            <div class="Home__featuredesc__1RQdl">
+              <p class="Home__featuredesc_heading__1nV6b">Convenience all the way</p>
+
+              <div class="Home__featuredesc_content__32VAi">
+                <p class="Home__featuredesc_content_para__3Kt3q">Have you stopped getting clothes tailored because it’s such a time-sink? We hear you! We offer a low effort, no-hiccups experience: pickup and delivery, regular updates, and easy alterations.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>

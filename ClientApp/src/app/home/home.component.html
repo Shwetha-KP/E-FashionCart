@@ -1,0 +1,170 @@
+
+  <app-nav-menu>
+
+  </app-nav-menu>
+<br /><br />
+
+  <h1 style="font-size:50px;color:darkgreen;font-family:Papyrus;font-weight:bolder;text-align:center">Welcome home {{firstName}}</h1>
+  <img *ngIf="customer" src="data:image/png;base64,{{customer.photo}}"
+       style="width: 200px;
+        height: 200px;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+
+" /><br /><br />
+  <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1" ></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carousel-item">
+          <div class="container" style=" bottom: 0; left: 0; right: 0; padding-bottom: 50px; position:absolute">
+            <h1>Doorstep measurement, pickup & delivery. Design consultation</h1>
+            <p>
+              Don't go looking for the perfect fit.
+              Let it come home to you.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <div class="carousel-item">
+          <div class="container" style=" bottom: 0; left: 0; right: 0; padding-bottom: 50px; position:absolute">
+            <h1>Doorstep measurement, pickup & delivery. Design consultation</h1>
+            <p>
+              Don't go looking for the perfect fit.
+              Let it come home to you.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <div class="carousel-item">
+          <div class="container" style=" bottom: 0; left: 0; right: 0; padding-bottom: 50px; position:absolute">
+            <h1>Doorstep measurement, pickup & delivery. Design consultation</h1>
+            <p>
+              Don't go looking for the perfect fit.
+              Let it come home to you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  <!--<form>
+    <div class="md-form active-pink active-pink-2 mb-3">
+      <input class="form-control" type="search" id="search1" placeholder="Search For Products, Patterns.." aria-label="Search" mdbInput>
+      <label for="search1">Search</label>
+    </div>
+  </form>-->
+  <!--<splide (onInit)="onSplideInit($event)">
+    <splide-slide>
+      <img src="assets/images/unnamed.jpg" alt="" />
+    </splide-slide>
+    <splide-slide>
+      <img src="assets/images/men.jpeg" alt="" />
+    </splide-slide>
+  </splide>-->
+
+  <h2 style="text-align:center">Top Fashion Styles</h2>
+  <h5 style="text-align:center">What would you like to get stitched?</h5><br />
+
+  <div class="card" style="border:none">
+    <div class="products" aria-labelledby="divLabel" *ngIf="productList">
+
+      <div class="col-md-3" *ngFor="let row of productList;">
+        <div class="row form-group">
+          <div class="row top-buffer">
+
+            <div class="box" (click)="gotoPattern(row)">
+              <div class="product-image" style="align-content:center">
+                <!--<div><input type="checkbox" [(ngModel)]="row.select" (change)="onSelect(row)" value="true" /></div>-->
+
+
+                <div><input type="image" src="data:image/png;base64,{{ row.picture }}" style="width:200px;height:200px" /></div>
+                <!--<div>Category: {{ row.category }}</div>-->
+
+
+                <div class="card-body">
+
+                  <div>Product/Category: {{ row.productName }}</div>
+
+
+                  <!--<div class="products_div">From Rs.{{row.price}}</div>-->
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+  
+  
+
+
+  <hr size=4>
+  <div class="main_div">
+    <div class="container">
+      <div class="heading_box">
+        <h1 class="heading1">How It Works</h1>
+        <h2 class="heading2">You relax. We do all the running around.</h2>
+      </div>
+
+      <div class="row home_main_row">
+        <div class="col-md-4 home_col">
+          <div class="row home_sub_row">
+            <div class="col-lg-4 home_sub_col">
+              <img class="home_icon" src="/assets/images/navigation_pin_location_find_mark_home-512.png" alt="icon" />
+            </div>
+            <div class="col-lg-8 home_sub_col">
+              <h4 class="home_content_heading">Schedule a pickup</h4>
+              <p class="home_content_para">Place an order online and we’ll swing by your home to pick up your fabric and sample garment for measurements on the scheduled date. No more gruelling visits to the tailor shop!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 home_col">
+          <div class="row home_sub_row">
+            <div class="col-lg-4 home_sub_col">
+              <img class="home_icon" src="/assets/images/111690-200.png" alt="icon" />
+            </div>
+            <div class="col-lg-8 home_sub_col">
+              <h4 class="home_content_heading">Talk to your designer</h4>
+              <p class="home_content_para">Our design consultant will reach out to you over call or Web application to understand your preferences and discuss the look of your outfit. Once you confirm the designs, we share the exact quotes & start the stitching process</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 home_col">
+          <div class="row home_sub_row">
+            <div class="col-lg-4 home_sub_col">
+              <img class="home_icon" src="/assets/images/doorstep-delivery-2072337-1751698.png" alt="icon" />
+            </div>
+            <div class="col-lg-8 home_sub_col">
+              <h4 class="home_content_heading">Breathe easy</h4>
+              <p class="home_content_para">Sit back and relax while we turn your fabric into a stunning outfit. We’ll deliver it in 5 to 15 working days, depending on the timeline you select. Alterations, if any, are taken care of at no extra cost.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+

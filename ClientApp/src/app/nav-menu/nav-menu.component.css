@@ -1,0 +1,45 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+nav{
+    background-color:powderblue;
+    padding:20px 0;
+
+}
+.cart-icon{
+    position:relative;
+}
+.cart-value{
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  background-color: red;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 4px 10px;
+  color:white;
+}
+.cart-icon:focus{
+    outline:none;
+    border:none;
+}
+.h5 {
+  font-family: Chiller;
+  font-size:30px;
+}

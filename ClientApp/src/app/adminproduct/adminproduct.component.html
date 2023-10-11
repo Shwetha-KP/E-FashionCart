@@ -1,0 +1,641 @@
+<div style="width: 100%; height: 100vh;
+       opacity: 5;
+       position: absolute;
+       top: 0;
+       bottom: 0; right: 0;
+       left:0;
+       background-repeat: repeat; background-size: cover; z-index: -1;">
+  <div class="tab ">
+    <button class="tablinks" (click)="openCity(event, 'Product')">Product/Category</button>
+    <button class="tablinks" (click)="openCity(event, 'Pattern')">Pattern</button>
+    <button class="tablinks" (click)="openCity(event, 'Agent')">Agent</button>
+    <button class="tablinks" (click)="openCity(event, 'AssignPickup')">Assign Pickup</button>
+    <button class="tablinks" (click)="openCity(event, 'PendingPickup')">Pending Pickup</button>
+    <button class="tablinks" (click)="openCity(event, 'WorkInProgress')">Work In Progress</button>
+    <button class="tablinks" (click)="openCity(event, 'AssignDelivery')">Assign Delivery</button>
+    <button class="tablinks" (click)="openCity(event, 'PendingDelivery')">Pending Delivery</button>
+    <button class="tablinks" (click)="openCity(event, 'Completed')">Completed</button>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+
+
+  <!--<div style="float:right;">
+    <button (click)="logout()">Logout</button>
+  </div>-->
+  <div id="Product" class="tabcontent">
+    <table border="1">
+      <tr>
+        <th>
+          <button (click)="addProduct()" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            Add Product
+          </button>
+        </th>
+        <th>
+          Product/Category Name
+        </th>
+        <th>
+          Picture
+        </th>
+      </tr>
+      <tr *ngFor="let row of productList">
+        <td>
+
+          <button (click)="saveProduct(row)" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            Save Product
+
+          </button>
+          <button (click)="deleteProduct(row)" class="btn btn-outline-danger" data-mdb-ripple-color="dark">
+            Delete Product
+          </button>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.productName" />
+        </td>
+        <td>
+          <input type="file" (change)="uploadphoto($event,row);" />
+          <img *ngIf="row.picture" src="data:image/png;base64,{{row.picture}}"
+               style="width:200px;height:200px;" />
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="Pattern" class="tabcontent">
+    <table border="1">
+      <tr>
+        <th>
+          <button (click)="addPattern()" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            Add pattern
+          </button>
+        </th>
+        <th>
+          Product/Category name
+        </th>
+        <th>
+          Pattern name
+        </th>
+        <th>
+          picture
+        </th>
+      </tr>
+      <tr *ngFor="let row of patternList">
+        <td>
+          <button (click)="savePattern(row)" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            Save pattern
+          </button>
+          <button (click)="deletePattern(row)" class="btn btn-outline-danger" data-mdb-ripple-color="dark">
+            Delete pattern
+          </button>
+        </td>
+        <td>
+          <select [(ngModel)]="row.productId">
+            <option *ngFor="let drop of productList" [ngValue]="drop.id">
+              {{drop.productName}}
+            </option>
+          </select>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.patternName" />
+        </td>
+        <td>
+          <input type="file" (change)="uploadimage($event,row);" />
+          <img *ngIf="row.picture" src="data:image/png;base64,{{row.picture}}"
+               style="width:200px;height:200px;" />
+        </td>
+        <td>
+          <input type="file" (change)="uploadimage1($event,row);" />
+          <img *ngIf="row.picture1" src="data:image/png;base64,{{row.picture1}}"
+               style="width:200px;height:200px;" />
+        </td>
+        <td>
+          <input type="file" (change)="uploadimage2($event,row);" />
+          <img *ngIf="row.picture2" src="data:image/png;base64,{{row.picture2}}"
+               style="width:200px;height:200px;" />
+        </td>
+        <td>
+          <input type="file" (change)="uploadimage3($event,row);" />
+          <img *ngIf="row.picture3" src="data:image/png;base64,{{row.picture3}}"
+               style="width:200px;height:200px;" />
+        </td>
+        <td>
+          <input type="file" (change)="uploadimage4($event,row);" />
+          <img *ngIf="row.picture4" src="data:image/png;base64,{{row.picture4}}"
+               style="width:200px;height:200px;" />
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="row.price" />
+        </td>
+
+      </tr>
+    </table>
+  </div>
+  <div id="Agent" class="tabcontent">
+    <table border="1">
+      <tr>
+        <th>
+          <button (click)="addAgent()" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            Add agent
+          </button>
+        </th>
+        <th>
+          Agent Name
+        </th>
+        <th>
+          Adhar Number
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          Photo
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Mobile Number
+        </th>
+        <th>
+          Password
+        </th>
+        <th>
+          Address
+        </th>
+      </tr>
+      <tr *ngFor="let row of agentList">
+        <td>
+          <button (click)="saveAgent(row)" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+            Save agent
+          </button>
+          <button (click)="deleteAgent(row)" class="btn btn-outline-danger" data-mdb-ripple-color="dark">
+            Delete agent
+          </button>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.deliveryAgent" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.adharNumber" />
+        </td>
+        <td>
+          <select [(ngModel)]="row.gender">
+            <option value=""></option>
+            <option value="Man">Man</option>
+            <option value="Woman">Woman</option>
+          </select>
+        </td>
+        <td>
+          <input type="file" (change)="uploadpicture($event,row);" />
+          <img *ngIf="row.photo" src="data:image/png;base64,{{row.photo}}"
+               style="width:200px;height:200px;" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.email" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.mobileNumber" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.password" />
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="row.address" />
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="AssignPickup" class="tabcontent">
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Order Date
+        </th>
+        <th>
+          Customer name
+        </th>
+        <th>
+          Customer Address
+        </th>
+        <th>
+          Agent type
+        </th>
+        <th>
+          Select agent
+        </th>
+        <th>
+          Order details
+        </th>
+      </tr>
+      <tr *ngFor="let details of orderDetails">
+        <td>
+          {{details.id}}
+        </td>
+        <td>
+          {{details.orderDate}}
+        </td>
+        <td>
+          {{details.customerName}}
+        </td>
+        <td>
+          {{details.customerAddress}}
+        </td>
+        <td>
+          {{details.agentType}}
+        </td>
+        <td>
+          <select [(ngModel)]="details.agentId">
+            <option *ngFor="let drop of agentList|filterggender:details.agentType" [(ngValue)]="drop.id">
+              {{drop.deliveryAgent}}
+            </option>
+          </select>
+        </td>
+        <td>
+          <table border="1" class="table table-striped">
+            <tr>
+              <th>
+                Pattern name
+              </th>
+              <th>
+                Quantity
+              </th>
+              <th>
+                Price
+              </th>
+              <th>
+                Stitching type
+              </th>
+              <th>
+                Picture
+              </th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let pending of details.orderDetail">
+              <td>
+                {{pending.patternName}}
+              </td>
+              <td>
+                {{pending.quantity}}
+              </td>
+              <td *ngIf="pending.patternType=='Custom'">
+                <input type="number" [(ngModel)]="pending.price" />
+              </td>
+              <td *ngIf="pending.patternType !='Custom'">
+                <input type="number" [(ngModel)]="pending.price" readonly />
+              </td>
+              <td>
+                {{pending.stitchingType}}
+              </td>
+              <td>
+                <div class="box">
+                  <splide (onInit)="onSplideInit($event)">
+
+                    <splide-slide>
+                      <div> <input type="image" src="data:image/png;base64,{{ pending.picture }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture1">
+                      <div> <input type="image" src="data:image/png;base64,{{ pending.picture1 }}" style="width: 300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture2">
+                      <div><input type="image" src="data:image/png;base64,{{ pending.picture2 }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture3">
+                      <div><input type="image" src="data:image/png;base64,{{pending.picture3 }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture4">
+                      <div><input type="image" src="data:image/png;base64,{{ pending.picture4 }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                  </splide>
+                </div>
+              </td>
+              <td><button (click)="updatePendingOrderStatus(details,pending)">Save</button></td>
+            </tr>
+
+          </table>
+
+
+      </tr>
+    </table>
+  </div>
+  <div id="PendingPickup" class="tabcontent">
+    <table border="1">
+      <tr>
+        <th>
+          Order ID
+        </th>
+        <th>
+          Customer ID
+        </th>
+        <th>
+          Assigned Agent
+        </th>
+        <th>
+          Mobile Number
+        </th>
+      </tr>
+      <tr *ngFor="let work of pendingPickupList">
+        <td>
+          {{work.id}}
+        </td>
+        <td>
+          {{work.customerId}}
+        </td>
+        <td>
+          {{work.deliveryAgent}}
+        </td>
+        <td>
+          {{work.mobileNumber}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="WorkInProgress" class="tabcontent">
+    <table border="1" style="margin-top:10px">
+      <tr>
+        <th style="background-color: whitesmoke; padding: 10px;">ID</th>
+        <th style="background-color: whitesmoke; padding: 10px;">Order Date</th>
+        <th style="background-color: whitesmoke; padding: 10px;">Cust Id</th>
+        <th style="background-color: whitesmoke; padding: 10px;">Agent Id</th>
+      </tr>
+      <tr *ngFor="let row of workinOrderList">
+        <td (click)="getWorkinDetail(row)"
+            style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+          {{row.id}}
+        </td>
+        <td (click)="getWorkinDetail(row)"
+            style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+          {{row.orderDate}}
+        </td>
+        <td (click)="getWorkinDetail(row)"
+            style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+          {{row.customerId}}
+        </td>
+        <td (click)="getWorkinDetail(row)"
+            style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+          {{row.agentId}}
+        </td>
+      </tr>
+    </table>
+
+    <button (click)="clearAll()">Clear</button>
+    <div *ngIf="selectedOrder == null">{{displaytext}}</div>
+    <div *ngIf="selectedOrder != null " style="margin-top:10px">
+      <table border="1" style="margin-top:10px">
+        <tr>
+          <th>Action</th>
+          <th style="background-color: whitesmoke; padding: 10px;">Detail ID</th>
+          <th style="background-color: whitesmoke; padding: 10px;">Stitching Type</th>
+          <th style="background-color: whitesmoke; padding: 10px;">Pattern Type</th>
+          <th style="background-color: whitesmoke; padding: 10px;">Pattern Name</th>
+          <th style="background-color: whitesmoke; padding: 10px;"
+              title="Extra cloth, material or delivery charge">Additional Charge</th>
+          <th style="background-color: whitesmoke; padding: 10px;">Photos</th>
+        </tr>
+        <tr *ngFor="let row of workinDetailList">
+          <td><button (click)="markAsStitchingCompleted(row)">Completed</button></td>
+          <td (click)="getWorkinMeasure(row)"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            {{row.det.id}}
+          </td>
+          <td (click)="getWorkinMeasure(row)"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            {{row.det.stitchingType}}
+          </td>
+          <td (click)="getWorkinMeasure(row)"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            {{row.det.patternType}}
+          </td>
+          <td (click)="getWorkinMeasure(row)" *ngIf="row.det.patternType=='Default'"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            {{row.pat.patternName}}
+          </td>
+          <td (click)="getWorkinMeasure(row)" *ngIf="row.det.patternType=='Custom'"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            Custom
+          </td>
+          <td (click)="getWorkinMeasure(row)"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            <input type="number" [(ngModel)]="row.det.stitchingAmount" />
+          </td>
+          <td (click)="getWorkinMeasure(row)" *ngIf="row.det.patternType=='Default'"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            <input type="image" src="data:image/png;base64,{{row.pat.picture}}" style="width:100px;height:100px" />
+          </td>
+          <td (click)="getWorkinMeasure(row)" *ngIf="row.det.patternType=='Custom'"
+              style="font-weight: 900; font-size: 20px; cursor: pointer;
+      color: blue; padding: 10px;">
+            <input type="image" src="data:image/png;base64,{{row.cust.photo}}" style="width:100px;height:100px" />
+          </td>
+        </tr>
+      </table>
+      <table border="1" style="margin-top:10px;padding:5px">
+        <tr>
+          <th>Name</th>
+          <th>Unit</th>
+          <th>Value</th>
+        </tr>
+        <tr *ngFor="let row of workinMeasureList">
+          <td><input type="text" [(ngModel)]="row.partname" readonly /></td>
+          <td>
+            <select [(ngModel)]="row.unitName" disabled>
+              <option value="cm">cm</option>
+              <option value="in">in</option>
+              <option value="m">m</option>
+            </select>
+          </td>
+          <td><input type="number" [(ngModel)]="row.unitValue" readonly /></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="AssignDelivery" class="tabcontent">
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Order Date
+        </th>
+        <th>
+          Customer name
+        </th>
+        <th>
+          Customer Address
+        </th>
+        <th>
+          Agent type
+        </th>
+        <th>
+          Select agent
+        </th>
+        <th>
+          Order details
+        </th>
+      </tr>
+      <tr *ngFor="let details of assignDelivery">
+        <td>
+          {{details.id}}
+        </td>
+        <td>
+          {{details.orderDate}}
+        </td>
+        <td>
+          {{details.customerName}}
+        </td>
+        <td>
+          {{details.customerAddress}}
+        </td>
+        <td>
+          {{details.agentType}}
+        </td>
+        <td>
+          <select [(ngModel)]="details.agentId">
+            <option *ngFor="let drop of agentList|filterggender:details.agentType" [(ngValue)]="drop.id">
+              {{drop.deliveryAgent}}
+            </option>
+          </select>
+        </td>
+        <td>
+          <table border="1">
+            <tr>
+              <th>
+                Pattern name
+              </th>
+              <th>
+                Quantity
+              </th>
+              <th>
+                Stitching type
+              </th>
+              <th>
+                Picture
+              </th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let pending of details.orderDetail">
+              <td>
+                {{pending.patternName}}
+              </td>
+              <td>
+                {{pending.quantity}}
+              </td>
+              <td>
+                {{pending.stitchingType}}
+              </td>
+              <td>
+                <div class="box">
+                  <splide (onInit)="onSplideInit($event)">
+
+                    <splide-slide>
+                      <div> <input type="image" src="data:image/png;base64,{{ pending.picture }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture1">
+                      <div> <input type="image" src="data:image/png;base64,{{ pending.picture1 }}" style="width: 300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture2">
+                      <div><input type="image" src="data:image/png;base64,{{ pending.picture2 }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture3">
+                      <div><input type="image" src="data:image/png;base64,{{pending.picture3 }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                    <splide-slide *ngIf="pending.picture4">
+                      <div><input type="image" src="data:image/png;base64,{{ pending.picture4 }}" style="width:300px;height:370px" /></div>
+                    </splide-slide>
+
+                  </splide>
+                </div>
+              </td>
+              <td><button (click)="updatePendingDeliveryOrderStatus(details,pending)">Save</button></td>
+            </tr>
+
+          </table>
+
+
+      </tr>
+    </table>
+  </div>
+  <div id="PendingDelivery" class="tabcontent">
+
+    <table border="1">
+      <tr>
+        <th>
+          Order ID
+        </th>
+        <th>
+          Customer ID
+        </th>
+        <th>
+          Assigned Agent
+        </th>
+        <th>
+          Mobile Number
+        </th>
+      </tr>
+      <tr *ngFor="let work of pendingDeliveryList">
+        <td>
+          {{work.id}}
+        </td>
+        <td>
+          {{work.customerId}}
+        </td>
+        <td>
+          {{work.deliveryAgent}}
+        </td>
+        <td>
+          {{work.mobileNumber}}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="Completed" class="tabcontent">
+    <table border="1">
+      <tr>
+        <th>Bill No</th>
+        <th>Order No</th>
+        <th>Customer ID</th>
+        <th>Delivered Agent ID</th>
+        <th>Order Date</th>
+        <th>Payment Date</th>
+        <th>Total</th>
+        <th>Paid Amount</th>
+        <th>Mode of Payment</th>
+        <th>Remarks</th>
+      </tr>
+      <tr *ngFor="let row of completedOrdersList">
+        <td>{{row.id}}</td>
+        <td>{{row.orderId}}</td>
+        <td>{{row.customerId}}</td>
+        <td>{{row.agentId}}</td>
+        <td>{{row.orderDate}}</td>
+        <td>{{row.paymentDate}}</td>
+        <td>{{row.totalAmount | currency:'INR':'symbol-narrow':'4.2-2'}}</td>
+        <td>{{row.paidAmount | currency:'INR':'symbol-narrow':'4.2-2'}}</td>
+        <td>{{row.paymentMode}}</td>
+        <td><textarea [(ngModel)]="row.remarks" style="width:100px;height:30px" readonly></textarea></td>
+      </tr>
+    </table>
+  </div>
+</div>

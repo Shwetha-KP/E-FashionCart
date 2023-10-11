@@ -1,0 +1,54 @@
+<app-nav-menu>
+
+</app-nav-menu>
+<br />
+<section class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+
+  <div class="container">
+    <h2>Frequently Asked Questions </h2>
+    <div class="accordion-heading" id="f1" (click)="accordion('f1')">How does online tailoring with E-FashionCart work?<span class="pull-right up-icon" [class.icon]="select==='f1'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f1'">
+      When you place an order, we'll schedule a pickup for your fabric & sample garment from your home. Next, a dedicated designer will help you style your fabric which you were selected the patterns from our source. Once the design is confirmed, we'll stitch the garment & ship it to your home in 5-15 working days. Alterations if any, are taken care of free of charge.
+    </div>
+
+    <div class="accordion-heading" id="f2" (click)="accordion('f2')">What kind of clothes do you stitch?<span class="pull-right up-icon" [class.icon]="select==='f2'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f2'">
+      We stitch all types of women's, men's and kid's clothing, both ethnic & western. The categories we service include saree blouses, salwar kameez, lehengas, dresses, gowns, trousers and shirts, among other things. We also provide finishing services like saree fall addition, pico(zigzag), hemming & saree kuchu (tassel addition).
+    </div>
+
+    <div class="accordion-heading" id="f3" (click)="accordion('f3')">Do your prices include lining?<span class="pull-right up-icon" [class.icon]="select==='f3'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f3'">
+      Yes, we don’t charge separately for lining. If a dress needs lining material, we will use it at no extra cost to you. We could make it without lining but it wouldn't be wearable right? Then why have a price for that? :)
+    </div>
+    <div class="accordion-heading" id="f4" (click)="accordion('f4')"> Do you charge extra for pickup and delivery?<span class="pull-right up-icon" [class.icon]="select==='f4'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f4'">
+      No, we do not. You just pay for the stitching & anything else you want us to buy on your behalf and that’s it.
+    </div>
+
+    <div class="accordion-heading" id="f5" (click)="accordion('f5')">Is it absolutly must for a tailor to take my measurements?<span class="pull-right up-icon" [class.icon]="select==='f5'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f5'">
+      Although the self measurement can be done, we believe that the measurement is a critical aspect in getting the best fit so we have made it compulsory to get measured by one of the concierge stylists.
+    </div>
+
+    <div class="accordion-heading" id="f6" (click)="accordion('f6')">Do I need to give my measurements every time I order?<span class="pull-right up-icon" [class.icon]="select==='f6'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f6'">
+      Yes. You should.
+    </div>
+
+    <div class="accordion-heading" id="f7" (click)="accordion('f7')">What if my tailored clothes don't fit as expected?<span class="pull-right up-icon" [class.icon]="select==='f7'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f7'">
+      We’ll alter them at no extra charge based on the feedback you provide. And we’ll learn from the process by recording your final measurements for future use.
+    </div>
+
+    <div class="accordion-heading" id="f8" (click)="accordion('f8')">My mother wants some clothes stitched, but she is not tech-savvy. Can I place an order on her behalf?<span class="pull-right up-icon" [class.icon]="select==='f8'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f8'">
+      Sure, go right ahead!
+    </div>
+
+    <div class="accordion-heading" id="f9" (click)="accordion('f9')">Can I have my suit tailored with my own designs: working cuffs, boot-cut trousers, a single vent, 3 buttons etc...?<span class="pull-right up-icon" [class.icon]="select==='f9'"><i class="fa fa-chevron-up"></i></span></div>
+    <div class="accordion-content" *ngIf="select==='f9'">
+      Ofcourse. You can add your own designs.
+    </div>
+  </div>
+  </section>
+  <router-outlet></router-outlet>

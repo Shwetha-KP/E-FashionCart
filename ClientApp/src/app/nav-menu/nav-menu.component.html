@@ -1,0 +1,23 @@
+<nav class="accordion-content">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom  shadow-sm">
+      <h1 class="my-0 mr-md-auto font-weight-normal"style="
+    font-family: Chiller;">E-FashionCart</h1>
+
+      <a class="btn btn-outline-primary" href="#" [routerLink]="['/home']">Home</a>
+      <a class="btn btn-outline-primary" href="#" [routerLink]="['/myorder']">My Orders</a>
+      <div class="cart-icon">
+        <a class="btn btn-outline-primary" href="#" [routerLink]="['/cart']"><fa name="shopping-cart"></fa>Cart</a>
+        <div class="cart-value">
+          {{count}}
+        </div>
+      </div>
+      <a class="btn btn-outline-primary" href="#" [routerLink]="['/faq']">FAQ</a>
+
+      <!--<a class="p-2 text-dark" href="#" [routerLink]="['/patterns']"></a>
+      <a class="p-2 text-dark" href="#" [routerLink]="['/order']"></a>-->
+      <a class="btn btn-outline-primary" href="#" [routerLink]="['/logout']">Log out</a>
+
+    </div>
+  </header>
+</nav>

@@ -1,0 +1,101 @@
+
+<app-nav-menu>
+
+</app-nav-menu>
+<br />
+<table>
+  <tr>
+    <td><button class="btn btn-info" (click)="changeIndex(1)">My Order</button></td>
+    <td><button class="btn btn-warning" (click)="changeIndex(2)">Order History</button></td>
+  </tr>
+</table>
+<br />
+<div *ngIf="index==1">
+  <div *ngIf="currentOrdersList==null||currentOrdersList.length==0">Currently you don't have any orders with us.</div>
+  <div *ngIf="currentOrdersList!=null||currentOrdersList.length>0">
+    <table class="table table-striped" border="0">
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Current Status</th>
+        <th scope="col">Billing Amount</th>
+        <th scope="col">Pickup/Deliver Agent</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Photo</th>
+      </tr>
+      <tr *ngFor="let row of currentOrdersList">
+        <td scope="row">{{row.orderId}}</td>
+        <td scope="row">{{row.orderDate}}</td>
+        <td scope="row">
+          <div *ngIf="row.orderStatus==1">
+            Order Confirmed
+          </div>
+          <div *ngIf="row.orderStatus==2">
+            Pickup Scheduled
+          </div>
+          <div *ngIf="row.orderStatus==3">
+            Stitching Work Started
+          </div>
+          <div *ngIf="row.orderStatus==4">
+            Stitching Work Completed
+          </div>
+          <div *ngIf="row.orderStatus==5">
+            Delivery Scheduled
+          </div>
+        </td>
+        <td *ngIf="row.orderStatus==null||row.orderStatus<=3">-</td>
+        <td *ngIf="row.orderStatus>3">
+          <div *ngIf="row.total>=1000">{{row.total | currency:'INR':'symbol-narrow':'4.2-2'}}</div>
+          <div *ngIf="row.total<1000">₹{{row.total}}</div>
+
+
+        </td>
+        <td>
+          <div *ngIf="row.orderStatus==2||row.orderStatus==5">{{row.agentName }}</div>
+          <div *ngIf="row.orderStatus !=2&&row.orderStatus !=5"> No Agent Assigned</div>
+        </td>
+        <td>
+          <div *ngIf="row.orderStatus==2||row.orderStatus==5">{{row.mobile }}</div>
+          <div *ngIf="row.orderStatus !=2&&row.orderStatus !=5"> N/A</div>
+        </td>
+        <td>
+          <div *ngIf="row.orderStatus==2||row.orderStatus==5">
+            <img *ngIf="row.photo" src="data:image/png;base64,{{row.photo}}"
+                 style="width:200px;height:200px;" />
+          </div>
+          <div *ngIf="row.orderStatus !=2&&row.orderStatus !=5"> N/A</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div *ngIf="index==2">
+  <div *ngIf="completedOrdersList==null||completedOrdersList.length==0">No order history available</div>
+  <div *ngIf="completedOrdersList!=null||completedOrdersList.length>0">
+    <table class="table table-striped" border="0">
+      <tr>
+        <th scope="col">Bill No</th>
+        <th scope="col">Order No</th>
+        <th scope="col">Delivered Agent ID</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Payment Date</th>
+        <th scope="col">Total</th>
+        <th scope="col">Paid Amount</th>
+        <!--<th scope="col">Balance</th>-->
+        <th scope="col">Mode of Payment</th>
+      </tr>
+      <tr *ngFor="let row of completedOrdersList">
+        <td scope="row">{{row.id}}</td>
+        <td scope="row">{{row.orderId}}</td>
+        <td scope="row">{{row.agentId}}</td>
+        <td scope="row">{{row.orderDate}}</td>
+        <td scope="row">{{row.paymentDate}}</td>
+        <td scope="row">{{row.totalAmount | currency:'INR':'symbol-narrow':'4.2-2'}}</td>
+        <td scope="row">{{row.paidAmount | currency:'INR':'symbol-narrow':'4.2-2'}}</td>
+        <!--<td scope="row">{{row.balance | currency:'INR':'symbol-narrow':'4.2-2'}}</td>-->
+        <td scope="row">{{row.paymentMode}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
